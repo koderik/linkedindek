@@ -13,8 +13,6 @@ app = Flask(__name__)
 
 # Get PostgreSQL configuration from environment variables
 # from dotenv import load_dotenv
-
-# # Load environment variables from .env.local file during development
 # load_dotenv(dotenv_path=".env.local")
 db_config = {
     "host": os.environ.get("POSTGRES_HOST"),
@@ -161,8 +159,9 @@ def result():
 
             
 
-
-            return render_template("result.html", entries=entries)
+        # create a sorted array of all unique years
+            years = sorted(list(set([entry[1] for entry in entries])))
+            return render_template("result.html", entries=entries, years=years)
         except psycopg2.Error as e:
             print(f"Error executing the query: {e}")
     return render_template("result.html", entries=None)
@@ -174,4 +173,5 @@ def result():
 
 if __name__ == "__main__":
     # try to connect to the database
+    # app.run(debug=True)
     app.run()
