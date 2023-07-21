@@ -11,10 +11,10 @@ import io
 app = Flask(__name__)
 
 # Get PostgreSQL configuration from environment variables
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 
-# Load environment variables from .env.local file during development
-load_dotenv(dotenv_path=".env.local")
+# # Load environment variables from .env.local file during development
+# load_dotenv(dotenv_path=".env.local")
 db_config = {
     "host": os.environ.get("POSTGRES_HOST"),
     "user": os.environ.get("POSTGRES_USER"),
