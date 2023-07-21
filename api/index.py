@@ -7,8 +7,6 @@ import qrcode.image.svg
 import io
 
 
-
-
 app = Flask(__name__)
 
 # Get PostgreSQL configuration from environment variables
@@ -113,7 +111,7 @@ def index():
 
 
 def validate_linkedin_url(linkedin_url):
-    pattern = r"^https?://www.linkedin.com/in/[\w-]+/?$"
+    pattern = r"^https?://www.linkedin.com/in/[\w-\p{L}]+/?$"
     if re.match(pattern, linkedin_url):
         return True, None
     else:
@@ -140,7 +138,7 @@ def result():
                 # resize the QR code to 40 mm
                 factory = qrcode.image.svg.SvgPathImage
                 img = qrcode.make(entry[2], image_factory=factory, box_size=20)
-                
+
                 stream = io.BytesIO()
                 img.save(stream)
 
@@ -151,24 +149,15 @@ def result():
                 data = re.sub(r'height="\d+mm"', 'height="40mm"', data)
 
                 # append the path to the svg image to the entry
-                
 
-                
                 entry.append(data)
-                
 
-            
-
-        # create a sorted array of all unique years
+            # create a sorted array of all unique years
             years = sorted(list(set([entry[1] for entry in entries])))
             return render_template("result.html", entries=entries, years=years)
         except psycopg2.Error as e:
             print(f"Error executing the query: {e}")
     return render_template("result.html", entries=None)
-
-
-
-
 
 
 if __name__ == "__main__":
