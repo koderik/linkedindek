@@ -1058,6 +1058,10 @@ input[type="range"]::-ms-fill-lower {
   height: 13rem;
 }
 
+.h-32 {
+  height: 8rem;
+}
+
 .w-8 {
   width: 2rem;
 }
