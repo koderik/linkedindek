@@ -1003,6 +1003,10 @@ input[type="range"]::-ms-fill-lower {
   height: 1.25rem;
 }
 
+.h-12 {
+  height: 3rem;
+}
+
 .w-32 {
   width: 8rem;
 }
@@ -1041,6 +1045,10 @@ input[type="range"]::-ms-fill-lower {
 
 .w-80 {
   width: 20rem;
+}
+
+.w-12 {
+  width: 3rem;
 }
 
 .max-w-3xl {
@@ -1298,6 +1306,10 @@ input[type="range"]::-ms-fill-lower {
 
 .text-center {
   text-align: center;
+}
+
+.font-sans {
+  font-family: Nunito Sans, ui-sans-serif, system-ui, -apple-system, system-ui, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
 }
 
 .text-2xl {
