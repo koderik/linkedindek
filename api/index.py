@@ -5,6 +5,7 @@ from flask import Flask, render_template, request
 import qrcode
 import qrcode.image.svg
 import io
+import urllib.parse
 
 
 app = Flask(__name__)
@@ -12,6 +13,8 @@ app = Flask(__name__)
 # Get PostgreSQL configuration from environment variables
 # from dotenv import load_dotenv
 # load_dotenv(dotenv_path=".env.local")
+
+
 db_config = {
     "host": os.environ.get("POSTGRES_HOST"),
     "user": os.environ.get("POSTGRES_USER"),
@@ -111,8 +114,12 @@ def index():
 
 
 def validate_linkedin_url(linkedin_url):
-    pattern = r"^https?://www.linkedin.com/in/[\w-\p{L}]+/?$"
-    if re.match(pattern, linkedin_url):
+    # Extract the path part of the URL
+    path = urllib.parse.urlparse(linkedin_url).path
+
+    # Match the LinkedIn username with accented characters and percent-encoded characters
+    pattern = r"^/in/[\w\u00C0-\u017F%-]+/?$"
+    if re.match(pattern, path):
         return True, None
     else:
         return False, "Invalid LinkedIn URL format"
