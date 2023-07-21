@@ -19,7 +19,7 @@
 
             <div class="flow-root max-w-4xl mx-auto mt-8 sm:mt-12 lg:mt-16">
 
-                <div class="-my-2 ">
+                <div class="-my-2">
                     {% if entries %}
                     {% for entry in entries %}
 
@@ -32,23 +32,27 @@
 
 
                                 <p
-                                    class="w-32 text-3xl font-semibold text-black-500 sm:text-right dark:text-gray-400 shrink-0">
+                                    class="w-32 text-3xl font-semibold text-black-500 text-left dark:text-gray-400 shrink-0">
                                     {{ entry[0] }}
                                 </p>
-                                <p class="w-32 text-2xl font-normal text-gray-500 dark:text-gray-400 shrink-0 ml-2"> {{ "I-"+
+                                <p class="w-32 text-2xl font-normal text-gray-500 dark:text-gray-400 shrink-0 ml-2"> {{
+                                    "I-"+
                                     entry[1][2:] }}
                                 </p>
+                                <a class="flex flex-row" href="{{ entry[2] }}">
                                 <img src="https://content.linkedin.com/content/dam/me/business/en-us/amp/brand-site/v2/bg/LI-Bug.svg.original.svg"
                                     alt="logo" class="w-8 h-8">
-                                <a href="{{ entry[2] }}""
+                                <p 
                                                                  class=" text-blue-600 text-1xl hover:underline
                                     self-center">
-                                    {{ entry[2] }}
+                                    {{ entry[2][8:32]+"..." }}
 
-                                </a>
+                            </p>
+                            </a>
                             </div>
 
-                            <div class="max-w-lg transition-all duration-300 rounded-lg blur-sm hover:blur-none">{% autoescape false %}{{ entry[3] }}{% endautoescape %}</div>
+                            <div class="max-w-lg transition-all duration-300 rounded-lg blur-sm hover:blur-none">{%
+                                autoescape false %}{{ entry[3] }}{% endautoescape %}</div>
                         </div>
 
                     </div>
