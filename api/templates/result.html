@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Result Page</title>
+    <link rel="stylesheet" href="../static/dist/css/output.css">
+</head>
+
+<body>
+    <section class="bg-white dark:bg-gray-900 antialiased">
+        <div class="max-w-screen-xl px-4 py-8 mx-auto lg:px-6 sm:py-16 lg:py-24">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-4xl font-extrabold leading-tight tracking-tight text-gray-900 dark:text-white">
+                    All entries
+                </h2>
+
+
+            </div>
+
+            <div class="flow-root max-w-4xl mx-auto mt-8 sm:mt-12 lg:mt-16">
+
+                <div class="-my-2 ">
+                    {% if entries %}
+                    {% for entry in entries %}
+
+                    <div class=" py-6 sm:gap-6 sm:items-center">
+
+
+                        <div
+                            class="flex flex-col justify-between  py-2 sm:gap-6 sm:flex-row sm:items-center p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                            <div class="flex flex-col justify-start gap-3 sm:flex-row items-center">
+
+
+                                <p
+                                    class="w-32 text-3xl font-semibold text-black-500 sm:text-right dark:text-gray-400 shrink-0">
+                                    {{ entry[0] }}
+                                </p>
+                                <p class="w-32 text-2xl font-normal text-gray-500 dark:text-gray-400 shrink-0 ml-2"> {{ "I-"+
+                                    entry[1][2:] }}
+                                </p>
+                                <img src="https://www.iare.se/_next/image?url=https%3A%2F%2Fiare-strapi-backend.s3.eu-north-1.amazonaws.com%2FSvart_Indek_Logga_eb93ec9200.svg&w=256&q=75"
+                                    alt="logo" class="w-8 h-8">
+                                <a href="{{ entry[2] }}""
+                                                                 class=" text-blue-600 text-1xl hover:underline
+                                    self-center">
+                                    {{ entry[2] }}
+
+                                </a>
+                            </div>
+
+                            <div class="qr-code h-auto max-w-lg transition-all duration-300 rounded-lg blur-sm hover:blur-none">{% autoescape false %}{{ entry[3] }}{% endautoescape %}</div>
+                        </div>
+
+                    </div>
+                    {% endfor %}
+                    {% else %}
+                    <p>No entries found in the database.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+</body>
+
+</html>
