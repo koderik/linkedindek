@@ -14,3 +14,11 @@ venv.bak/
 
 # Node modules
 node_modules/
+api/tailwind.config.js
+
+api/static/src
+
+# tailwindcss
+package-lock.json
+package.json
+.env.local

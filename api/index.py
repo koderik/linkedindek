@@ -8,6 +8,7 @@ import io
 
 
 
+
 app = Flask(__name__)
 
 # Get PostgreSQL configuration from environment variables
@@ -145,12 +146,17 @@ def result():
                 stream = io.BytesIO()
                 img.save(stream)
 
-                print(stream.getvalue().decode())
+                data = stream.getvalue().decode()
+                # replace width="Xmm" with width="40mm"
+                data = re.sub(r'width="\d+mm"', 'width="40mm"', data)
+                # replace height="Xmm" with height="40mm"
+                data = re.sub(r'height="\d+mm"', 'height="40mm"', data)
+
                 # append the path to the svg image to the entry
                 
 
                 
-                entry.append(stream.getvalue().decode())
+                entry.append(data)
                 
 
             
@@ -168,4 +174,4 @@ def result():
 
 if __name__ == "__main__":
     # try to connect to the database
-    app.run(debug=True)
+    app.run()
