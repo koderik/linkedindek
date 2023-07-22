@@ -22,10 +22,10 @@
 </head>
 
 <body>
-    <section class="bg-white dark:bg-gray-900 antialiased">
+    <section class="bg-gradient-to-tr from-cyan-300 via-blue-500 to-purple-200" style="min-height: 100vh">
         <div class="max-w-screen-xl px-4 py-8 mx-auto lg:px-6 sm:py-16 lg:py-24">
             <div class="max-w-3xl mx-auto text-center">
-                <h2 class="text-5xl font-extrabold leading-tight tracking-tight text-gray-900 dark:text-white">
+                <h2 class="text-5xl font-extrabold leading-tight tracking-tight  text-white">
                     Connect with your classmates on LinkedIn
                 </h2>
 
@@ -60,7 +60,7 @@
                                 <!-- Add "Show All" as the first option -->
                                 <li>
                                     <div class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                                        <input id="filter-radio-0" type="radio" value="Show All" name="filter-radio"
+                                        <input id="filter-radio-0" type="radio" value="Show All" name="filter-radio" checked="True"
                                             class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                                         <label for="filter-radio-0"
                                             class="w-full ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Show
@@ -111,11 +111,11 @@
 
                                 <!-- Add a class to represent the year -->
                                 <p
-                                    class=" w-32 text-3xl font-semibold text-black-500 text-left dark:text-gray-400 shrink-0">
+                                    class=" w-44 text-3xl font-semibold text-black-500 text-left dark:text-gray-400 shrink-0">
                                     {{entry[0]}}
                                 </p>
                                 <p id="{{entry[1]}}"
-                                    class="year w-32 text-2xl font-normal text-gray-500 dark:text-gray-400 shrink-0 ml-2">
+                                    class="year w-28 text-2xl font-normal text-gray-500 dark:text-gray-400 shrink-0 ml-2">
                                     {{
                                     "I-"+entry[1][2:] }}
                                 </p>
@@ -144,7 +144,6 @@
         </div>
     </section>
 
-    <!-- ... your previous HTML code ... -->
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -223,15 +222,6 @@
         });
     </script>
     <script defer src="/_vercel/insights/script.js"></script>
-
-
-
-
-
-
-
-
-
 
 </body>
 
