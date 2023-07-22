@@ -1,28 +1,41 @@
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fexamples%2Ftree%2Fmain%2Fpython%2Fflask&demo-title=Flask%20%2B%20Vercel&demo-description=Use%20Flask%202%20on%20Vercel%20with%20Serverless%20Functions%20using%20the%20Python%20Runtime.&demo-url=https%3A%2F%2Fflask-python-template.vercel.app%2F&demo-image=https://assets.vercel.com/image/upload/v1669994156/random/flask.png)
+# LinkedIndek
+This repository contains a simple Flask server that interacts with a PostgreSQL database to store and display LinkedIn URLs along with their corresponding names and years. Users can submit new LinkedIn URLs through a web form, and the server will validate the URL and add it to the database if it's valid and not already submitted.
 
-# Flask + Vercel
+# Requirements
+To run this server, you need the following software and configurations:
 
-This example shows how to use Flask 2 on Vercel with Serverless Functions using the [Python Runtime](https://vercel.com/docs/concepts/functions/serverless-functions/runtimes/python).
+1. Python 3.x: Make sure you have Python 3.x installed on your system.
+2. PostgreSQL: You should have a PostgreSQL server running and configured with appropriate access credentials. The server should also have a database created to store the LinkedIn URL submissions.
 
-## Demo
+# Installation
+To install the server, follow these steps:
 
-https://flask-python-template.vercel.app/
+Clone the repository:
+```
+git clone https://github.com/koderik/linkedindek
+```
+Navigate to the repository directory:
+```
+cd linkedindek
+```
+Install the required Python packages:
+```
+pip install -r requirements.txt
+```
+Don't forget to set up a PostgreSQL server and database as mentioned in the Requirements section. Either locally or on a remote server. If you are unsure of this step, email me at erik@sandlov.com.
 
-## How it Works
+Set the following environment variables:
+```
+export POSTGRES_HOST="your_postgres_host"
+export POSTGRES_USER="your_postgres_user"
+export POSTGRES_PASSWORD="your_postgres_password"
+export POSTGRES_DATABASE="your_postgres_database"
+```
+If you are loading the environment variables from a file, you need to uncomment some lines from the head of index.py
 
-This example uses the Web Server Gateway Interface (WSGI) with Flask to enable handling requests on Vercel with Serverless Functions.
-
-## Running Locally
-
-```bash
-npm i -g vercel
-vercel dev
+Run the server:
+```
+python api/index.py
 ```
 
-Your Flask application is now available at `http://localhost:3000`.
-
-## One-Click Deploy
-
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=vercel-examples):
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fexamples%2Ftree%2Fmain%2Fpython%2Fflask&demo-title=Flask%20%2B%20Vercel&demo-description=Use%20Flask%202%20on%20Vercel%20with%20Serverless%20Functions%20using%20the%20Python%20Runtime.&demo-url=https%3A%2F%2Fflask-python-template.vercel.app%2F&demo-image=https://assets.vercel.com/image/upload/v1669994156/random/flask.png)
+Once the server is running, you can access it at http://localhost:5000.
